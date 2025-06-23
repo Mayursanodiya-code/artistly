@@ -1,27 +1,29 @@
-const artists = [
-  { name: "DJ Rhea", category: "DJ", location: "Mumbai", fee: "₹20,000" },
-  { name: "Singer Dev", category: "Singer", location: "Delhi", fee: "₹15,000" },
-  { name: "Dance Vibes", category: "Dancer", location: "Pune", fee: "₹10,000" },
-];
-
-export default function ArtistListing() {
+export default function HomePage() {
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Browse Artists</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {artists.map((artist, index) => (
-          <div key={index} className="p-4 border rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-1">{artist.name}</h2>
-            <p className="text-gray-400">
-              {artist.category} • {artist.location}
-            </p>
-            <p className="mt-2 font-medium">Fee: {artist.fee}</p>
-            <button className="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-              Ask for Quote
-            </button>
+      <h1 className="text-3xl font-bold mb-4">Welcome to Artistly.com</h1>
+      <p className="mb-6">
+        Artistly is a platform to connect Event Planners with Artists like
+        Singers, Dancers, and DJs.
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        {["Singers", "Dancers", "DJs", "Speakers"].map((category, index) => (
+          <div
+            key={index}
+            className="border p-4 rounded shadow text-center font-medium"
+          >
+            {category}
           </div>
         ))}
       </div>
+
+      <a
+        href="/artists"
+        className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Explore Artists
+      </a>
     </main>
   );
 }
