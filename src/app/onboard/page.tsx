@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useForm, FieldValues } from "react-hook-form";
+import Link from "next/link";
 
 export default function OnboardPage() {
   const { register, handleSubmit } = useForm();
@@ -36,6 +36,7 @@ export default function OnboardPage() {
           <option value="Singer">Singer</option>
           <option value="Dancer">Dancer</option>
           <option value="DJ">DJ</option>
+          <option value="Speaker">Speaker</option>
         </select>
         <button
           type="submit"
