@@ -74,7 +74,10 @@ export default function ArtistListing() {
               {artist.category} • {artist.location}
             </p>
             <p>Fee: ₹{artist.fee}</p>
-            <button className="mt-2 px-4 py-1 bg-blue-600 text-white rounded">
+            <button
+              onClick={() => alert(`Requested Quote for ${artist.name}`)}
+              className="mt-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            >
               Ask for Quote
             </button>
           </div>
