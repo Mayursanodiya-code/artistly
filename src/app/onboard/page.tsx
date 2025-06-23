@@ -42,7 +42,7 @@ export default function OnboardPage() {
   };
 
   return (
-    <main className="p-6 max-w-2xl mx-auto space-y-6">
+    <main className="min-h-screen bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white p-6 max-w-2xl mx-auto space-y-6">
       <h1 className="text-2xl font-bold">Artist Onboarding</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

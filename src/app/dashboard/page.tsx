@@ -32,7 +32,7 @@ const mockArtists = [
 
 export default function DashboardPage() {
   return (
-    <main className="p-6 max-w-5xl mx-auto">
+    <main className="min-h-screen bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white p-6 max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">🎧 Manager Dashboard</h1>
 
       <div className="overflow-x-auto rounded-lg shadow border">

@@ -36,7 +36,7 @@ export default function ArtistListing() {
   });
 
   return (
-    <main className="p-6 space-y-6">
+    <main className="min-h-screen bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white p-6">
       <h1 className="text-2xl font-bold">Browse Artists</h1>
 
       <FilterBlock

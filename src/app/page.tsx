@@ -2,13 +2,12 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white dark:bg-black text-center px-4">
-      <div className="space-y-6">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white px-4">
+      <div className="space-y-6 text-center">
+        <h1 className="text-4xl sm:text-5xl font-extrabold">
           Welcome to Artistly
         </h1>
-
-        <p className="text-lg text-gray-600 dark:text-gray-300">
+        <p className="text-lg">
           Book DJs, Singers, Dancers, and Speakers for your event
         </p>
 
@@ -18,13 +17,11 @@ export default function HomePage() {
               Explore Artists
             </button>
           </Link>
-
           <Link href="/onboard">
             <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow transition">
               Join as Artist
             </button>
           </Link>
-
           <Link href="/dashboard">
             <button className="bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-6 py-3 rounded-lg shadow transition">
               Manager Dashboard
@@ -36,7 +33,7 @@ export default function HomePage() {
           {["Singer", "Dancer", "DJ", "Speaker"].map((category) => (
             <div
               key={category}
-              className="p-4 border rounded-xl shadow text-lg font-semibold dark:border-gray-600 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+              className="p-4 border rounded-xl shadow text-lg font-semibold dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
             >
               {category}
             </div>
