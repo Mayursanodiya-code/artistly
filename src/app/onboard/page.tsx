@@ -6,7 +6,6 @@ import * as yup from "yup";
 import Link from "next/link";
 import { useState } from "react";
 
-// ✅ Validation schema using Yup
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   bio: yup.string().required("Bio is required"),
@@ -115,14 +114,23 @@ export default function OnboardPage() {
           <p className="text-red-600 text-sm">{errors.location.message}</p>
         )}
 
-        {/* Image Upload */}
-        <label className="font-semibold">Profile Image (optional)</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="w-full"
-        />
+        {/* Profile Image Upload - STYLED */}
+        <label className="font-semibold block">Profile Image (optional)</label>
+        <div className="w-full border border-dashed border-gray-400 rounded-lg p-4 text-center hover:bg-gray-100 transition">
+          <label
+            htmlFor="profileImage"
+            className="cursor-pointer text-blue-600 font-medium"
+          >
+            {image ? image.name : "Click to choose a file"}
+          </label>
+          <input
+            id="profileImage"
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="hidden"
+          />
+        </div>
 
         {/* Submit Button */}
         <button
