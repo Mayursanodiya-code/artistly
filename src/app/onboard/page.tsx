@@ -29,14 +29,12 @@ export default function OnboardPage() {
           placeholder="Bio"
           className="w-full p-2 border rounded"
         />
-
         <select {...register("category")} className="w-full p-2 border rounded">
           <option value="">Select Category</option>
           <option value="Singer">Singer</option>
           <option value="Dancer">Dancer</option>
           <option value="DJ">DJ</option>
         </select>
-
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded"
