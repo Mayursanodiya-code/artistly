@@ -1,11 +1,9 @@
 "use client";
+export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import FilterBlock from "../components/FilterBlock";
-
-export const dynamic = "force-dynamic"; // ⛔ prevents Vercel build error
 
 interface Artist {
   name: string;
@@ -15,11 +13,17 @@ interface Artist {
 }
 
 export default function ArtistListing() {
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams.get("category") || "";
-
   const [artists, setArtists] = useState<Artist[]>([]);
-  const [category, setCategory] = useState(categoryParam);
+
+  // ✅ Replace useSearchParams with URL logic (safe for Vercel)
+  const [categoryParam, setCategoryParam] = useState("");
+  useEffect(() => {
+    const url = new URLSearchParams(window.location.search);
+    const cat = url.get("category") || "";
+    setCategoryParam(cat);
+  }, []);
+
+  const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
 
@@ -28,6 +32,11 @@ export default function ArtistListing() {
       .then((res) => res.json())
       .then((data) => setArtists(data));
   }, []);
+
+  // ✅ Set initial filter if categoryParam exists
+  useEffect(() => {
+    if (categoryParam) setCategory(categoryParam);
+  }, [categoryParam]);
 
   const filteredArtists = artists.filter((artist) => {
     return (
