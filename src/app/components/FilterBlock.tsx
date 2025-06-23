@@ -20,7 +20,7 @@ export default function FilterBlock({
       <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        className="p-2 border rounded text-black focus:text-white focus:bg-blue-600 transition"
+        className="p-2 border rounded focus:text-white focus:bg-blue-600 transition"
       >
         <option value="">All Categories</option>
         <option value="Singer">Singer</option>
@@ -33,13 +33,13 @@ export default function FilterBlock({
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         placeholder="Location"
-        className="p-2 border rounded text-black focus:text-white focus:bg-blue-600 transition"
+        className="p-2 border rounded focus:text-white focus:bg-blue-600 transition"
       />
 
       <select
         value={price}
         onChange={(e) => setPrice(e.target.value)}
-        className="p-2 border rounded text-black focus:text-white focus:bg-blue-600 transition"
+        className="p-2 border rounded focus:text-white focus:bg-blue-600 transition"
       >
         <option value="">All Price Ranges</option>
         <option value="10000">Below ₹10k</option>
