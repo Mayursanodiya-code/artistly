@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import FilterBlock from "../components/FilterBlock";
 
@@ -12,8 +13,11 @@ interface Artist {
 }
 
 export default function ArtistListing() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category") || "";
+
   const [artists, setArtists] = useState<Artist[]>([]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(categoryParam);
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
 
@@ -36,7 +40,7 @@ export default function ArtistListing() {
   });
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white p-6">
+    <main className="min-h-screen p-6 space-y-6 bg-gradient-to-br from-white via-sky-100 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-gray-900 dark:text-white">
       <h1 className="text-2xl font-bold">Browse Artists</h1>
 
       <FilterBlock
@@ -50,7 +54,10 @@ export default function ArtistListing() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredArtists.map((artist, index) => (
-          <div key={index} className="p-4 border rounded shadow">
+          <div
+            key={index}
+            className="p-4 border rounded shadow dark:border-gray-600"
+          >
             <h2 className="text-xl font-semibold">{artist.name}</h2>
             <p>
               {artist.category} • {artist.location}

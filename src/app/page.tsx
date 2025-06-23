@@ -31,12 +31,11 @@ export default function HomePage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
           {["Singer", "Dancer", "DJ", "Speaker"].map((category) => (
-            <div
-              key={category}
-              className="p-4 border rounded-xl shadow text-lg font-semibold dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
-            >
-              {category}
-            </div>
+            <Link key={category} href={`/artists?category=${category}`}>
+              <div className="p-4 border rounded-xl shadow text-lg font-semibold text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition dark:border-gray-600">
+                {category}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
