@@ -57,7 +57,14 @@ export default function DashboardPage() {
                 <td className="p-4 border">{artist.location}</td>
                 <td className="p-4 border">{artist.fee}</td>
                 <td className="p-4 border">
-                  <button className="px-3 py-1 bg-blue-600 text-white rounded text-xs">
+                  <button
+                    onClick={() =>
+                      alert(
+                        `${artist.name}\n${artist.category} • ${artist.location} • ${artist.fee}`
+                      )
+                    }
+                    className="px-3 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition"
+                  >
                     View
                   </button>
                 </td>
