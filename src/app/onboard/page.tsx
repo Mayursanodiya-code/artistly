@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useForm, FieldValues } from "react-hook-form";
 
 export default function OnboardPage() {
@@ -11,8 +12,9 @@ export default function OnboardPage() {
   };
 
   return (
-    <main className="p-6 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Artist Onboarding</h1>
+    <main className="p-6 max-w-xl mx-auto space-y-6">
+      <h1 className="text-2xl font-bold">Artist Onboarding</h1>
+
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <input
           {...register("name")}
@@ -42,6 +44,14 @@ export default function OnboardPage() {
           Submit
         </button>
       </form>
+
+      <div className="text-center">
+        <Link href="/">
+          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+            Back to Home
+          </button>
+        </Link>
+      </div>
     </main>
   );
 }
