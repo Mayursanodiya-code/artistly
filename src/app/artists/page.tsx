@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import FilterBlock from '../components/FilterBlock';
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import FilterBlock from "../components/FilterBlock";
+
+export const dynamic = "force-dynamic"; // ⛔ prevents Vercel build error
 
 interface Artist {
   name: string;
@@ -14,28 +16,28 @@ interface Artist {
 
 export default function ArtistListing() {
   const searchParams = useSearchParams();
-  const categoryParam = searchParams.get('category') || '';
+  const categoryParam = searchParams.get("category") || "";
 
   const [artists, setArtists] = useState<Artist[]>([]);
   const [category, setCategory] = useState(categoryParam);
-  const [location, setLocation] = useState('');
-  const [price, setPrice] = useState('');
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
-    fetch('/data/artists.json')
+    fetch("/data/artists.json")
       .then((res) => res.json())
       .then((data) => setArtists(data));
   }, []);
 
   const filteredArtists = artists.filter((artist) => {
     return (
-      (category === '' || artist.category === category) &&
-      (location === '' ||
+      (category === "" || artist.category === category) &&
+      (location === "" ||
         artist.location.toLowerCase().includes(location.toLowerCase())) &&
-      (price === '' ||
-        (price === '10000' && artist.fee <= 10000) ||
-        (price === '20000' && artist.fee <= 20000) ||
-        (price === '20001' && artist.fee > 20000))
+      (price === "" ||
+        (price === "10000" && artist.fee <= 10000) ||
+        (price === "20000" && artist.fee <= 20000) ||
+        (price === "20001" && artist.fee > 20000))
     );
   });
 
