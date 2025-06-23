@@ -1,29 +1,30 @@
-export default function HomePage() {
+'use client'
+
+import { useForm, FieldValues } from 'react-hook-form'
+
+export default function OnboardPage() {
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = (data: FieldValues) => {
+    alert("Form Submitted!")
+    console.log(data)
+  }
+
   return (
-    <main className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Artistly.com</h1>
-      <p className="mb-6">
-        Artistly is a platform to connect Event Planners with Artists like
-        Singers, Dancers, and DJs.
-      </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        {["Singers", "Dancers", "DJs", "Speakers"].map((category, index) => (
-          <div
-            key={index}
-            className="border p-4 rounded shadow text-center font-medium"
-          >
-            {category}
-          </div>
-        ))}
-      </div>
-
-      <a
-        href="/artists"
-        className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Explore Artists
-      </a>
+    <main className="p-6 max-w-xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Artist Onboarding</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <input {...register("name")} placeholder="Name" className="w-full p-2 border rounded" />
+        <input {...register("location")} placeholder="Location" className="w-full p-2 border rounded" />
+        <textarea {...register("bio")} placeholder="Bio" className="w-full p-2 border rounded" />
+        <select {...register("category")} className="w-full p-2 border rounded">
+          <option value="">Select Category</option>
+          <option value="Singer">Singer</option>
+          <option value="Dancer">Dancer</option>
+          <option value="DJ">DJ</option>
+        </select>
+        <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">Submit</button>
+      </form>
     </main>
-  );
+  )
 }
