@@ -2,14 +2,8 @@
 
 import React from "react";
 
-interface Artist {
-  name: string;
-  category: string;
-  location: string;
-  fee: string;
-}
-
-const mockArtists: Artist[] = [
+// Mock artist data
+const mockArtists = [
   {
     name: "DJ Rhea",
     category: "DJ",
@@ -28,36 +22,42 @@ const mockArtists: Artist[] = [
     location: "Pune",
     fee: "₹10,000",
   },
+  {
+    name: "Motivator Meera",
+    category: "Speaker",
+    location: "Bangalore",
+    fee: "₹25,000",
+  },
 ];
 
-const DashboardPage = () => {
+export default function DashboardPage() {
   return (
-    <main className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Manager Dashboard</h1>
+    <main className="p-6 max-w-5xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6">🎧 Manager Dashboard</h1>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full table-auto border border-gray-300">
-          <thead className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
-            <tr>
-              <th className="px-4 py-2 border">Name</th>
-              <th className="px-4 py-2 border">Category</th>
-              <th className="px-4 py-2 border">Location</th>
-              <th className="px-4 py-2 border">Fee</th>
-              <th className="px-4 py-2 border">Action</th>
+      <div className="overflow-x-auto rounded-lg shadow border">
+        <table className="min-w-full border-collapse">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr className="text-left text-gray-800 dark:text-white">
+              <th className="p-4 border">Name</th>
+              <th className="p-4 border">Category</th>
+              <th className="p-4 border">Location</th>
+              <th className="p-4 border">Fee</th>
+              <th className="p-4 border">Action</th>
             </tr>
           </thead>
           <tbody>
             {mockArtists.map((artist, idx) => (
               <tr
                 key={idx}
-                className="text-center hover:bg-gray-50 dark:hover:bg-gray-800"
+                className="hover:bg-gray-50 dark:hover:bg-gray-900 text-sm text-gray-700 dark:text-gray-200"
               >
-                <td className="px-4 py-2 border">{artist.name}</td>
-                <td className="px-4 py-2 border">{artist.category}</td>
-                <td className="px-4 py-2 border">{artist.location}</td>
-                <td className="px-4 py-2 border">{artist.fee}</td>
-                <td className="px-4 py-2 border">
-                  <button className="px-3 py-1 text-sm bg-blue-600 text-white rounded">
+                <td className="p-4 border">{artist.name}</td>
+                <td className="p-4 border">{artist.category}</td>
+                <td className="p-4 border">{artist.location}</td>
+                <td className="p-4 border">{artist.fee}</td>
+                <td className="p-4 border">
+                  <button className="px-3 py-1 bg-blue-600 text-white rounded text-xs">
                     View
                   </button>
                 </td>
@@ -68,6 +68,4 @@ const DashboardPage = () => {
       </div>
     </main>
   );
-};
-
-export default DashboardPage;
+}
