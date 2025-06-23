@@ -6,6 +6,7 @@ import * as yup from "yup";
 import Link from "next/link";
 import { useState } from "react";
 
+// ✅ Validation schema
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   bio: yup.string().required("Bio is required"),
@@ -93,8 +94,11 @@ export default function OnboardPage() {
           <p className="text-red-600 text-sm">{errors.languages.message}</p>
         )}
 
-        {/* Fee */}
-        <select {...register("fee")} className="w-full p-2 border rounded">
+        {/* Fee - styled for dark mode */}
+        <select
+          {...register("fee")}
+          className="w-full p-2 border rounded bg-white text-black dark:bg-gray-800 dark:text-white"
+        >
           <option value="">Select Fee Range</option>
           <option value="Below ₹10,000">Below ₹10,000</option>
           <option value="₹10,000 - ₹20,000">₹10,000 - ₹20,000</option>
@@ -114,7 +118,7 @@ export default function OnboardPage() {
           <p className="text-red-600 text-sm">{errors.location.message}</p>
         )}
 
-        {/* Profile Image Upload - STYLED */}
+        {/* File Upload - styled */}
         <label className="font-semibold block">Profile Image (optional)</label>
         <div className="w-full border border-dashed border-gray-400 rounded-lg p-4 text-center hover:bg-gray-100 transition">
           <label
@@ -132,7 +136,7 @@ export default function OnboardPage() {
           />
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded"
