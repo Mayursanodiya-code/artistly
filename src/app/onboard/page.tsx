@@ -30,7 +30,7 @@ export default function OnboardPage() {
 
   const [image, setImage] = useState<File | null>(null);
 
-  const onSubmit = (data: Record<string, any>) => {
+  const onSubmit = (data: Record<string, unknown>) => {
     console.log("Submitted Data:", { ...data, image });
     alert("Form submitted successfully! ✅ Check console.");
   };
