@@ -19,6 +19,11 @@ export default function HomePage() {
             Join as Artist
           </button>
         </Link>
+        <Link href="/dashboard">
+          <button className="bg-purple-600 text-white px-4 py-2 rounded">
+            Manager Dashboard
+          </button>
+        </Link>
       </div>
     </main>
   );
