@@ -1,18 +1,18 @@
 "use client";
 
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Link from "next/link";
 import { useState } from "react";
 
-// Validation Schema
+// ✅ Validation schema using Yup
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   bio: yup.string().required("Bio is required"),
   category: yup.array().min(1, "Select at least one category"),
   languages: yup.array().min(1, "Select at least one language"),
-  fee: yup.string().required("Fee range is required"),
+  fee: yup.string().required("Fee is required"),
   location: yup.string().required("Location is required"),
 });
 
@@ -23,7 +23,6 @@ export default function OnboardPage() {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -32,12 +31,12 @@ export default function OnboardPage() {
   const [image, setImage] = useState<File | null>(null);
 
   const onSubmit = (data: any) => {
-    console.log("Form Submitted:", { ...data, image });
-    alert("Form submitted! Check console.");
+    console.log("Submitted Data:", { ...data, image });
+    alert("Form submitted successfully! ✅ Check console.");
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
+    if (e.target.files?.length) {
       setImage(e.target.files[0]);
     }
   };
@@ -68,7 +67,7 @@ export default function OnboardPage() {
         )}
 
         {/* Category */}
-        <label className="font-semibold">Category (select at least 1)</label>
+        <label className="font-semibold">Category</label>
         <div className="flex flex-wrap gap-4">
           {categories.map((cat) => (
             <label key={cat} className="flex items-center gap-2">
@@ -116,8 +115,8 @@ export default function OnboardPage() {
           <p className="text-red-600 text-sm">{errors.location.message}</p>
         )}
 
-        {/* Profile Image */}
-        <label className="font-semibold">Upload Profile Image (optional)</label>
+        {/* Image Upload */}
+        <label className="font-semibold">Profile Image (optional)</label>
         <input
           type="file"
           accept="image/*"
@@ -125,7 +124,7 @@ export default function OnboardPage() {
           className="w-full"
         />
 
-        {/* Submit */}
+        {/* Submit Button */}
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded"
