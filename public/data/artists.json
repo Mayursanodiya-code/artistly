@@ -1,0 +1,26 @@
+[
+  {
+    "name": "DJ Rhea",
+    "category": "DJ",
+    "location": "Mumbai",
+    "fee": 20000
+  },
+  {
+    "name": "Singer Dev",
+    "category": "Singer",
+    "location": "Delhi",
+    "fee": 15000
+  },
+  {
+    "name": "Dance Vibes",
+    "category": "Dancer",
+    "location": "Pune",
+    "fee": 10000
+  },
+  {
+    "name": "Speaker Aarav",
+    "category": "Speaker",
+    "location": "Bangalore",
+    "fee": 12000
+  }
+]
